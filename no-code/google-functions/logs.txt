@@ -1,0 +1,1391 @@
+---
+insertId: 3mcoijd3yey
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Fsystem_event
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  methodName: /InternalServices.ReplaceInternalService
+  resourceName: namespaces/transcription-console-backend/services/process-audio
+  response:
+    '@type': type.googleapis.com/google.cloud.run.v1.Service
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      annotations:
+        cloudfunctions.googleapis.com/function-id: process-audio
+        run.googleapis.com/build-base-image: europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311
+        run.googleapis.com/build-enable-automatic-updates: 'true'
+        run.googleapis.com/build-function-target: process-audio
+        run.googleapis.com/build-image-uri: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio:version_1
+        run.googleapis.com/build-name: projects/704679664257/locations/europe-west1/builds/aabfa9e4-9e06-4ac5-80d7-95ab6da88a2c
+        run.googleapis.com/build-service-account: projects/transcription-console-backend/serviceAccounts/704679664257-compute@developer.gserviceaccount.com
+        run.googleapis.com/build-source-location: gs://gcf-v2-sources-704679664257-europe-west1/process-audio/function-source.zip#1734798680640245
+        run.googleapis.com/client-name: cloudfunctions
+        run.googleapis.com/custom-audiences: '["https://europe-west1-transcription-console-backend.cloudfunctions.net/process-audio"]'
+        run.googleapis.com/ingress: all
+        run.googleapis.com/ingress-status: all
+        run.googleapis.com/launch-stage: BETA
+        run.googleapis.com/operation-id: 23c6e743-dc3d-49cd-9085-5edda38ddc8b
+        run.googleapis.com/urls: '["https://process-audio-704679664257.europe-west1.run.app","https://europe-west1-transcription-console-backend.cloudfunctions.net/process-audio"]'
+        serving.knative.dev/creator: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+        serving.knative.dev/lastModifier: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+      creationTimestamp: '2024-12-21T16:27:38.153132Z'
+      generation: 2
+      labels:
+        cloud.googleapis.com/location: europe-west1
+        goog-cloudfunctions-runtime: python311
+        goog-drz-cloudfunctions-id: process-audio
+        goog-drz-cloudfunctions-location: europe-west1
+        goog-managed-by: cloudfunctions
+      name: process-audio
+      namespace: '704679664257'
+      resourceVersion: AAYpyk3VEag
+      selfLink: /apis/serving.knative.dev/v1/namespaces/704679664257/services/process-audio
+      uid: cf6b8949-0590-4873-b756-efa5e082e830
+    spec:
+      template:
+        metadata:
+          annotations:
+            autoscaling.knative.dev/maxScale: '100'
+            cloudfunctions.googleapis.com/trigger-type: google.cloud.storage.object.v1.finalized
+            run.googleapis.com/base-images: '{"worker":"europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311"}'
+            run.googleapis.com/client-name: cloudfunctions
+            run.googleapis.com/startup-cpu-boost: 'true'
+          labels:
+            run.googleapis.com/startupProbeType: Default
+          name: process-audio-00002-qud
+        spec:
+          containerConcurrency: 1
+          containers:
+          - env:
+            - name: LOG_EXECUTION_ID
+              value: 'true'
+            image: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio:version_1
+            name: worker
+            ports:
+            - containerPort: 8080
+              name: http1
+            resources:
+              limits:
+                cpu: '0.1666'
+                memory: 256M
+            startupProbe:
+              failureThreshold: 1
+              periodSeconds: 240
+              tcpSocket:
+                port: 8080
+              timeoutSeconds: 240
+          runtimeClassName: run.googleapis.com/linux-base-image-update
+          serviceAccountName: 704679664257-compute@developer.gserviceaccount.com
+          timeoutSeconds: 540
+      traffic:
+      - latestRevision: true
+        percent: 100
+    status:
+      conditions:
+      - lastTransitionTime: '2024-12-21T16:32:06.128573Z'
+        message: |-
+          Revision 'process-audio-00002-qud' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: Ready
+      - lastTransitionTime: '2024-12-21T16:32:06.116561Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        status: 'True'
+        type: ConfigurationsReady
+      - lastTransitionTime: '2024-12-21T16:32:06.128573Z'
+        message: |-
+          Revision 'process-audio-00002-qud' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: RoutesReady
+      latestCreatedRevisionName: process-audio-00002-qud
+      latestReadyRevisionName: process-audio-00002-qud
+      observedGeneration: 2
+  serviceName: run.googleapis.com
+  status:
+    code: 9
+    message: |-
+      Ready condition status changed to False for Service process-audio with message: Revision 'process-audio-00002-qud' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+      Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+      For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+receiveTimestamp: '2024-12-21T16:32:06.591486554Z'
+resource:
+  labels:
+    configuration_name: ''
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: ''
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+timestamp: '2024-12-21T16:32:06.221418Z'
+---
+insertId: -o3glz4d3ip6
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Fsystem_event
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  methodName: /InternalServices.ReplaceInternalService
+  resourceName: namespaces/transcription-console-backend/revisions/process-audio-00002-qud
+  response:
+    '@type': type.googleapis.com/google.cloud.run.v1.Revision
+    apiVersion: serving.knative.dev/v1
+    kind: Revision
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100'
+        cloudfunctions.googleapis.com/trigger-type: google.cloud.storage.object.v1.finalized
+        run.googleapis.com/base-images: '{"worker":"europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311"}'
+        run.googleapis.com/build-function-target: '{"worker":"process-audio"}'
+        run.googleapis.com/build-id: '{"worker":"aabfa9e4-9e06-4ac5-80d7-95ab6da88a2c"}'
+        run.googleapis.com/build-source-location: '{"worker":"gs://gcf-v2-sources-704679664257-europe-west1/process-audio/function-source.zip#1734798680640245"}'
+        run.googleapis.com/client-name: cloudfunctions
+        run.googleapis.com/launch-stage: BETA
+        run.googleapis.com/operation-id: 23c6e743-dc3d-49cd-9085-5edda38ddc8b
+        run.googleapis.com/startup-cpu-boost: 'true'
+        serving.knative.dev/creator: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+      creationTimestamp: '2024-12-21T16:31:54.785915Z'
+      generation: 1
+      labels:
+        cloud.googleapis.com/location: europe-west1
+        goog-cloudfunctions-runtime: python311
+        goog-managed-by: cloudfunctions
+        run.googleapis.com/startupProbeType: Default
+        serving.knative.dev/configuration: process-audio
+        serving.knative.dev/configurationGeneration: '2'
+        serving.knative.dev/route: process-audio
+        serving.knative.dev/service: process-audio
+        serving.knative.dev/serviceUid: cf6b8949-0590-4873-b756-efa5e082e830
+      name: process-audio-00002-qud
+      namespace: '704679664257'
+      ownerReferences:
+      - apiVersion: serving.knative.dev/v1
+        blockOwnerDeletion: true
+        controller: true
+        kind: Configuration
+        name: process-audio
+        uid: 19e16ea3-a906-42cc-b181-c76cfc51f1c7
+      resourceVersion: AAYpyk3TNbA
+      selfLink: /apis/serving.knative.dev/v1/namespaces/704679664257/revisions/process-audio-00002-qud
+      uid: 31c71b01-0fc0-4aa4-b9bf-1fbabc2d9dea
+    spec:
+      containerConcurrency: 1
+      containers:
+      - env:
+        - name: LOG_EXECUTION_ID
+          value: 'true'
+        image: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:a1e4d5611f2916af0b627cee65983ee4f9add7401af8c278f8ba3f76cea7cf7b
+        name: worker
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: '0.1666'
+            memory: 256M
+        startupProbe:
+          failureThreshold: 1
+          periodSeconds: 240
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 240
+      runtimeClassName: run.googleapis.com/linux-base-image-update
+      serviceAccountName: 704679664257-compute@developer.gserviceaccount.com
+      timeoutSeconds: 540
+    status:
+      conditions:
+      - lastTransitionTime: '2024-12-21T16:32:06.084016Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: Ready
+      - lastTransitionTime: '2024-12-21T16:32:06.084016Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: ContainerHealthy
+      - lastTransitionTime: '2024-12-21T16:31:56.690101Z'
+        message: Container image import completed in 1.23s.
+        status: 'True'
+        type: ContainerReady
+      - lastTransitionTime: '2024-12-21T16:32:03.787332Z'
+        message: Revision deployment finished in 7.1s. Checking container health.
+        status: 'True'
+        type: ResourcesAvailable
+      - lastTransitionTime: '2024-12-21T16:32:03.787332Z'
+        message: System will retry after 0:00:00 from lastTransitionTime for attempt
+          0.
+        reason: ImmediateRetry
+        severity: Info
+        status: 'True'
+        type: Retry
+      containerStatuses:
+      - imageDigest: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:a1e4d5611f2916af0b627cee65983ee4f9add7401af8c278f8ba3f76cea7cf7b
+        name: worker
+      imageDigest: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:a1e4d5611f2916af0b627cee65983ee4f9add7401af8c278f8ba3f76cea7cf7b
+      logUrl: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22
+      observedGeneration: 1
+  serviceName: run.googleapis.com
+  status:
+    code: 9
+    message: |-
+      Ready condition status changed to False for Revision process-audio-00002-qud with message: The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+      Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00002-qud&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00002-qud%22 
+      For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+receiveTimestamp: '2024-12-21T16:32:06.491641643Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+timestamp: '2024-12-21T16:32:06.095595Z'
+---
+insertId: 6766ed8600013f6b870cbc65
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fvarlog%2Fsystem
+receiveTimestamp: '2024-12-21T16:32:06.349985163Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+textPayload: Default STARTUP TCP probe failed 1 time consecutively for container "worker"
+  on port 8080. The instance was not started.
+timestamp: '2024-12-21T16:32:06.081771Z'
+---
+insertId: 6766ed86000030d0519a3dd4
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:06.122407391Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: "functions_framework.exceptions.MissingTargetException: File /workspace/main.py\
+  \ is expected to contain a function named 'process-audio'. Found: 'process_audio'\
+  \ instead"
+timestamp: '2024-12-21T16:32:06.012496Z'
+---
+insertId: 6766ed8600003071fe7f7745
+labels:
+  container_name: worker
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fvarlog%2Fsystem
+receiveTimestamp: '2024-12-21T16:32:06.014995181Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+severity: WARNING
+textPayload: Container called exit(1).
+timestamp: '2024-12-21T16:32:06.012369935Z'
+---
+insertId: 6766ed8500070d450023cd9f
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    raise MissingTargetException('
+timestamp: '2024-12-21T16:32:05.462149Z'
+---
+insertId: 6766ed850006fbc7086aea37
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/_function_registry.py",
+  line 54, in get_user_function'
+timestamp: '2024-12-21T16:32:05.457671Z'
+---
+insertId: 6766ed850006fbbbc7095811
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.457659Z'
+---
+insertId: 6766ed850006fab3f5f64d65
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    function = _function_registry.get_user_function('
+timestamp: '2024-12-21T16:32:05.457395Z'
+---
+insertId: 6766ed850006fa29b4b9d256
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/__init__.py",
+  line 377, in create_app'
+timestamp: '2024-12-21T16:32:05.457257Z'
+---
+insertId: 6766ed850006fa0c58c0a44c
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    raise e from None'
+timestamp: '2024-12-21T16:32:05.457228Z'
+---
+insertId: 6766ed850006f7e36dac0ca2
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/__init__.py",
+  line 395, in create_app'
+timestamp: '2024-12-21T16:32:05.456675Z'
+---
+insertId: 6766ed850006f7d5d4c7842b
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.456661Z'
+---
+insertId: 6766ed850006f6c43e202bbe
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    app = create_app(target, source, signature_type)'
+timestamp: '2024-12-21T16:32:05.456388Z'
+---
+insertId: 6766ed850006f4959ed7fbcb
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/_cli.py",
+  line 36, in _cli'
+timestamp: '2024-12-21T16:32:05.455829Z'
+---
+insertId: 6766ed850006f48f931ce8c0
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.455823Z'
+---
+insertId: 6766ed850006f3bbd032081f
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    return __callback(*args, **kwargs)'
+timestamp: '2024-12-21T16:32:05.455611Z'
+---
+insertId: 6766ed850006f2ea4a477110
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/click/core.py",
+  line 783, in invoke'
+timestamp: '2024-12-21T16:32:05.455402Z'
+---
+insertId: 6766ed850006f2e705c9bbc7
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.455399Z'
+---
+insertId: 6766ed850006f1bd44c9587a
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    return ctx.invoke(self.callback, **ctx.params)'
+timestamp: '2024-12-21T16:32:05.455101Z'
+---
+insertId: 6766ed850006f0996c3e826d
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/click/core.py",
+  line 1434, in invoke'
+timestamp: '2024-12-21T16:32:05.454809Z'
+---
+insertId: 6766ed850006f09588c200cc
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '         ^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.454805Z'
+---
+insertId: 6766ed850006effef19262e5
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    rv = self.invoke(ctx)'
+timestamp: '2024-12-21T16:32:05.454654Z'
+---
+insertId: 6766ed850006eefbcf7b701f
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/click/core.py",
+  line 1078, in main'
+timestamp: '2024-12-21T16:32:05.454395Z'
+---
+insertId: 6766ed850006eef7b6c004c9
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '           ^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:32:05.454391Z'
+---
+insertId: 6766ed850006ee0880bcf292
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.790197362Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    return self.main(*args, **kwargs)'
+timestamp: '2024-12-21T16:32:05.454152Z'
+---
+insertId: 6766ed850006eab3200729a4
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.456701385Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/click/core.py",
+  line 1157, in __call__'
+timestamp: '2024-12-21T16:32:05.453299Z'
+---
+insertId: 6766ed850006eaad9337c683
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.456701385Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '             ^^^^^^'
+timestamp: '2024-12-21T16:32:05.453293Z'
+---
+errorGroups:
+- id: CPb32JvR5-naHQ
+insertId: 6766ed850006ea86f7dcaa8f
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d92480033becdc751a5dd7d2ba9c9ab0f8788adb312ecf79bb016c43a12b0e1c2ea3f83000126fd81866d01adef62af4d79dae80b17ad9c7ee4d66b4cb8d4dea130fb0
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:32:05.456701385Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00002-qud
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/layers/google.python.pip/pip/bin/functions-framework", line 8, in <module>
+      sys.exit(_cli())
+timestamp: '2024-12-21T16:32:05.453254Z'
+---
+insertId: -hf9dxxd3gru
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Factivity
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  authenticationInfo:
+    principalEmail: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+  authorizationInfo:
+  - granted: true
+    permission: run.services.update
+    permissionType: ADMIN_WRITE
+    resource: namespaces/transcription-console-backend/services/process-audio
+    resourceAttributes: {}
+  - granted: true
+    permission: run.services.update
+    permissionType: ADMIN_WRITE
+    resourceAttributes:
+      name: namespaces/transcription-console-backend/services/process-audio
+      service: run.googleapis.com/
+      type: run.googleapis.com/Service
+  methodName: google.cloud.serverless.internal.InternalServices.ReplaceInternalService
+  requestMetadata:
+    destinationAttributes: {}
+    requestAttributes:
+      auth: {}
+      time: '2024-12-21T16:31:54.741743Z'
+  resourceLocation:
+    currentLocations:
+    - europe-west1
+  resourceName: namespaces/transcription-console-backend/services/process-audio
+  serviceName: run.googleapis.com
+receiveTimestamp: '2024-12-21T16:31:55.305985425Z'
+resource:
+  labels:
+    configuration_name: ''
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: ''
+    service_name: process-audio
+  type: cloud_run_revision
+severity: NOTICE
+timestamp: '2024-12-21T16:31:54.506967Z'
+---
+insertId: ujgd28d5fzw
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Factivity
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  authenticationInfo:
+    principalEmail: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+  authorizationInfo:
+  - granted: true
+    permission: run.services.update
+    permissionType: ADMIN_WRITE
+    resource: namespaces/transcription-console-backend/services/process-audio
+    resourceAttributes: {}
+  - granted: true
+    permission: run.services.update
+    permissionType: ADMIN_WRITE
+    resourceAttributes:
+      name: namespaces/transcription-console-backend/services/process-audio
+      service: run.googleapis.com/
+      type: run.googleapis.com/Service
+  methodName: google.cloud.serverless.internal.InternalServices.ReplaceInternalService
+  requestMetadata:
+    destinationAttributes: {}
+    requestAttributes:
+      auth: {}
+      time: '2024-12-21T16:31:20.301485Z'
+  resourceLocation:
+    currentLocations:
+    - europe-west1
+  resourceName: namespaces/transcription-console-backend/services/process-audio
+  serviceName: run.googleapis.com
+receiveTimestamp: '2024-12-21T16:31:21.101857550Z'
+resource:
+  labels:
+    configuration_name: ''
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: ''
+    service_name: process-audio
+  type: cloud_run_revision
+severity: NOTICE
+timestamp: '2024-12-21T16:31:20.092887Z'
+---
+insertId: -7zswkld3mzo
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Fsystem_event
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  methodName: /InternalServices.CreateInternalService
+  resourceName: namespaces/transcription-console-backend/services/process-audio
+  response:
+    '@type': type.googleapis.com/google.cloud.run.v1.Service
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    metadata:
+      annotations:
+        cloudfunctions.googleapis.com/function-id: process-audio
+        run.googleapis.com/build-base-image: europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311
+        run.googleapis.com/build-enable-automatic-updates: 'true'
+        run.googleapis.com/build-function-target: process-audio
+        run.googleapis.com/build-image-uri: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio:version_1
+        run.googleapis.com/build-name: projects/704679664257/locations/europe-west1/builds/9845afa8-2355-4821-ad94-b982d64341d9
+        run.googleapis.com/build-service-account: projects/transcription-console-backend/serviceAccounts/704679664257-compute@developer.gserviceaccount.com
+        run.googleapis.com/build-source-location: gs://gcf-v2-sources-704679664257-europe-west1/process-audio/function-source.zip#1734798408805600
+        run.googleapis.com/client-name: cloudfunctions
+        run.googleapis.com/custom-audiences: '["https://europe-west1-transcription-console-backend.cloudfunctions.net/process-audio"]'
+        run.googleapis.com/ingress: all
+        run.googleapis.com/ingress-status: all
+        run.googleapis.com/launch-stage: BETA
+        run.googleapis.com/operation-id: 256facb1-2312-4911-88fc-00e67adcc7e1
+        run.googleapis.com/urls: '["https://process-audio-704679664257.europe-west1.run.app","https://europe-west1-transcription-console-backend.cloudfunctions.net/process-audio"]'
+        serving.knative.dev/creator: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+        serving.knative.dev/lastModifier: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+      creationTimestamp: '2024-12-21T16:27:38.153132Z'
+      generation: 1
+      labels:
+        cloud.googleapis.com/location: europe-west1
+        goog-cloudfunctions-runtime: python311
+        goog-drz-cloudfunctions-id: process-audio
+        goog-drz-cloudfunctions-location: europe-west1
+        goog-managed-by: cloudfunctions
+      name: process-audio
+      namespace: '704679664257'
+      resourceVersion: AAYpyj5Xsuo
+      selfLink: /apis/serving.knative.dev/v1/namespaces/704679664257/services/process-audio
+      uid: cf6b8949-0590-4873-b756-efa5e082e830
+    spec:
+      template:
+        metadata:
+          annotations:
+            autoscaling.knative.dev/maxScale: '100'
+            cloudfunctions.googleapis.com/trigger-type: google.cloud.storage.object.v1.finalized
+            run.googleapis.com/base-images: '{"worker":"europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311"}'
+            run.googleapis.com/client-name: cloudfunctions
+            run.googleapis.com/startup-cpu-boost: 'true'
+          labels:
+            run.googleapis.com/startupProbeType: Default
+          name: process-audio-00001-gez
+        spec:
+          containerConcurrency: 1
+          containers:
+          - env:
+            - name: LOG_EXECUTION_ID
+              value: 'true'
+            image: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio:version_1
+            name: worker
+            ports:
+            - containerPort: 8080
+              name: http1
+            resources:
+              limits:
+                cpu: '0.1666'
+                memory: 256M
+            startupProbe:
+              failureThreshold: 1
+              periodSeconds: 240
+              tcpSocket:
+                port: 8080
+              timeoutSeconds: 240
+          runtimeClassName: run.googleapis.com/linux-base-image-update
+          serviceAccountName: 704679664257-compute@developer.gserviceaccount.com
+          timeoutSeconds: 540
+      traffic:
+      - latestRevision: true
+        percent: 100
+    status:
+      conditions:
+      - lastTransitionTime: '2024-12-21T16:27:46.228618Z'
+        message: |-
+          Revision 'process-audio-00001-gez' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: Ready
+      - lastTransitionTime: '2024-12-21T16:27:46.223924Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        status: 'True'
+        type: ConfigurationsReady
+      - lastTransitionTime: '2024-12-21T16:27:46.228618Z'
+        message: |-
+          Revision 'process-audio-00001-gez' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: RoutesReady
+      latestCreatedRevisionName: process-audio-00001-gez
+      latestReadyRevisionName: process-audio-00001-gez
+      observedGeneration: 1
+  serviceName: run.googleapis.com
+  status:
+    code: 9
+    message: |-
+      Ready condition status changed to False for Service process-audio with message: Revision 'process-audio-00001-gez' is not ready and cannot serve traffic. The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+      Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+      For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+receiveTimestamp: '2024-12-21T16:27:46.645210069Z'
+resource:
+  labels:
+    configuration_name: ''
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: ''
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+timestamp: '2024-12-21T16:27:46.343229Z'
+---
+insertId: lnna3md3jjc
+logName: projects/transcription-console-backend/logs/cloudaudit.googleapis.com%2Fsystem_event
+protoPayload:
+  '@type': type.googleapis.com/google.cloud.audit.AuditLog
+  methodName: /InternalServices.CreateInternalService
+  resourceName: namespaces/transcription-console-backend/revisions/process-audio-00001-gez
+  response:
+    '@type': type.googleapis.com/google.cloud.run.v1.Revision
+    apiVersion: serving.knative.dev/v1
+    kind: Revision
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100'
+        cloudfunctions.googleapis.com/trigger-type: google.cloud.storage.object.v1.finalized
+        run.googleapis.com/base-images: '{"worker":"europe-west1-docker.pkg.dev/serverless-runtimes/google-22-full/runtimes/python311"}'
+        run.googleapis.com/build-function-target: '{"worker":"process-audio"}'
+        run.googleapis.com/build-id: '{"worker":"9845afa8-2355-4821-ad94-b982d64341d9"}'
+        run.googleapis.com/build-source-location: '{"worker":"gs://gcf-v2-sources-704679664257-europe-west1/process-audio/function-source.zip#1734798408805600"}'
+        run.googleapis.com/client-name: cloudfunctions
+        run.googleapis.com/launch-stage: BETA
+        run.googleapis.com/operation-id: 256facb1-2312-4911-88fc-00e67adcc7e1
+        run.googleapis.com/startup-cpu-boost: 'true'
+        serving.knative.dev/creator: service-704679664257@gcf-admin-robot.iam.gserviceaccount.com
+      creationTimestamp: '2024-12-21T16:27:38.290248Z'
+      generation: 1
+      labels:
+        cloud.googleapis.com/location: europe-west1
+        goog-cloudfunctions-runtime: python311
+        goog-managed-by: cloudfunctions
+        run.googleapis.com/startupProbeType: Default
+        serving.knative.dev/configuration: process-audio
+        serving.knative.dev/configurationGeneration: '1'
+        serving.knative.dev/route: process-audio
+        serving.knative.dev/service: process-audio
+        serving.knative.dev/serviceUid: cf6b8949-0590-4873-b756-efa5e082e830
+      name: process-audio-00001-gez
+      namespace: '704679664257'
+      ownerReferences:
+      - apiVersion: serving.knative.dev/v1
+        blockOwnerDeletion: true
+        controller: true
+        kind: Configuration
+        name: process-audio
+        uid: 19e16ea3-a906-42cc-b181-c76cfc51f1c7
+      resourceVersion: AAYpyj5VT0k
+      selfLink: /apis/serving.knative.dev/v1/namespaces/704679664257/revisions/process-audio-00001-gez
+      uid: 5bf34c5b-c76c-42cb-99cc-e2109c1ab3b9
+    spec:
+      containerConcurrency: 1
+      containers:
+      - env:
+        - name: LOG_EXECUTION_ID
+          value: 'true'
+        image: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:11c256de1ca3bce5a0975db5367ec5dcb65bec779958216efc2e154081bfc986
+        name: worker
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: '0.1666'
+            memory: 256M
+        startupProbe:
+          failureThreshold: 1
+          periodSeconds: 240
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 240
+      runtimeClassName: run.googleapis.com/linux-base-image-update
+      serviceAccountName: 704679664257-compute@developer.gserviceaccount.com
+      timeoutSeconds: 540
+    status:
+      conditions:
+      - lastTransitionTime: '2024-12-21T16:27:46.174793Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: Ready
+      - lastTransitionTime: '2024-12-21T16:27:46.174793Z'
+        message: |-
+          The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+          Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+          For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+        reason: HealthCheckContainerError
+        status: 'False'
+        type: ContainerHealthy
+      - lastTransitionTime: '2024-12-21T16:27:40.208347Z'
+        message: Container image import completed in 1.22s.
+        status: 'True'
+        type: ContainerReady
+      - lastTransitionTime: '2024-12-21T16:27:42.771906Z'
+        message: Revision deployment finished in 2.56s. Checking container health.
+        status: 'True'
+        type: ResourcesAvailable
+      - lastTransitionTime: '2024-12-21T16:27:42.771906Z'
+        message: System will retry after 0:00:00 from lastTransitionTime for attempt
+          0.
+        reason: ImmediateRetry
+        severity: Info
+        status: 'True'
+        type: Retry
+      containerStatuses:
+      - imageDigest: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:11c256de1ca3bce5a0975db5367ec5dcb65bec779958216efc2e154081bfc986
+        name: worker
+      imageDigest: europe-west1-docker.pkg.dev/transcription-console-backend/gcf-artifacts/transcription--console--backend__europe--west1__process--audio@sha256:11c256de1ca3bce5a0975db5367ec5dcb65bec779958216efc2e154081bfc986
+      logUrl: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22
+      observedGeneration: 1
+  serviceName: run.googleapis.com
+  status:
+    code: 9
+    message: |-
+      Ready condition status changed to False for Revision process-audio-00001-gez with message: The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable within the allocated timeout. This can happen when the container port is misconfigured or if the timeout is too short. The health check timeout can be extended. Logs for this revision might contain more information.
+
+      Logs URL: https://console.cloud.google.com/logs/viewer?project=transcription-console-backend&resource=cloud_run_revision/service_name/process-audio/revision_name/process-audio-00001-gez&advancedFilter=resource.type%3D%22cloud_run_revision%22%0Aresource.labels.service_name%3D%22process-audio%22%0Aresource.labels.revision_name%3D%22process-audio-00001-gez%22 
+      For more troubleshooting guidance, see https://cloud.google.com/run/docs/troubleshooting#container-failed-to-start
+receiveTimestamp: '2024-12-21T16:27:47.019137755Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+timestamp: '2024-12-21T16:27:46.193599Z'
+---
+insertId: 6766ec820002a4785db20337
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fvarlog%2Fsystem
+receiveTimestamp: '2024-12-21T16:27:46.401199019Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+severity: ERROR
+textPayload: Default STARTUP TCP probe failed 1 time consecutively for container "worker"
+  on port 8080. The instance was not started.
+timestamp: '2024-12-21T16:27:46.173176Z'
+---
+insertId: 6766ec820000fc9b362b2ff2
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:46.112354381Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: "functions_framework.exceptions.MissingTargetException: File /workspace/main.py\
+  \ is expected to contain a function named 'process-audio'. Found: 'process_audio'\
+  \ instead"
+timestamp: '2024-12-21T16:27:46.064667Z'
+---
+insertId: 6766ec820000fc4d38f37648
+labels:
+  container_name: worker
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fvarlog%2Fsystem
+receiveTimestamp: '2024-12-21T16:27:46.068700423Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+severity: WARNING
+textPayload: Container called exit(1).
+timestamp: '2024-12-21T16:27:46.061648833Z'
+---
+insertId: 6766ec810006e72acfa0a845
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    raise MissingTargetException('
+timestamp: '2024-12-21T16:27:45.452394Z'
+---
+insertId: 6766ec810006d79055db4e60
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/_function_registry.py",
+  line 54, in get_user_function'
+timestamp: '2024-12-21T16:27:45.448400Z'
+---
+insertId: 6766ec810006d78075e61ae9
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:27:45.448384Z'
+---
+insertId: 6766ec810006d69d603a85bf
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    function = _function_registry.get_user_function('
+timestamp: '2024-12-21T16:27:45.448157Z'
+---
+insertId: 6766ec810006d5fe7a90a1b7
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/__init__.py",
+  line 377, in create_app'
+timestamp: '2024-12-21T16:27:45.447998Z'
+---
+insertId: 6766ec810006d5d5a51cf70e
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    raise e from None'
+timestamp: '2024-12-21T16:27:45.447957Z'
+---
+insertId: 6766ec810006d1cd63d92378
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/__init__.py",
+  line 395, in create_app'
+timestamp: '2024-12-21T16:27:45.446925Z'
+---
+insertId: 6766ec810006d1b82e091d10
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:27:45.446904Z'
+---
+insertId: 6766ec810006d0e9b3eccfaa
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    app = create_app(target, source, signature_type)'
+timestamp: '2024-12-21T16:27:45.446697Z'
+---
+insertId: 6766ec810006cd45a695daaf
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/functions_framework/_cli.py",
+  line 36, in _cli'
+timestamp: '2024-12-21T16:27:45.445765Z'
+---
+insertId: 6766ec810006cd334ca6f314
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:27:45.445747Z'
+---
+insertId: 6766ec810006cc4cc936dada
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '    return __callback(*args, **kwargs)'
+timestamp: '2024-12-21T16:27:45.445516Z'
+---
+insertId: 6766ec810006cad7b6c94e7c
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '  File "/layers/google.python.pip/pip/lib/python3.11/site-packages/click/core.py",
+  line 783, in invoke'
+timestamp: '2024-12-21T16:27:45.445143Z'
+---
+insertId: 6766ec810006ca7686b8c25d
+labels:
+  goog-managed-by: cloudfunctions
+  instanceId: 0066d9248022d7a0dc821b4730c4f8d4c4f338ee45c7721956ffdf2a006d06f44a441bf8431dbbd9bed4fb9b7c203125cc232069e1f44a1fe41211d00faaae2cd83311974f
+logName: projects/transcription-console-backend/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2024-12-21T16:27:45.778450307Z'
+resource:
+  labels:
+    configuration_name: process-audio
+    location: europe-west1
+    project_id: transcription-console-backend
+    revision_name: process-audio-00001-gez
+    service_name: process-audio
+  type: cloud_run_revision
+textPayload: '           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+timestamp: '2024-12-21T16:27:45.445046Z'
