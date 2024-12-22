@@ -1,0 +1,5 @@
+python/venv
+python/.env
+no-code/*.m4a
+no-code/*.mp3
+no-code/*.wav
